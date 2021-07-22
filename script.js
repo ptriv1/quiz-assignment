@@ -66,8 +66,16 @@ var questions = [
 function checkAnswers (event) { 
     var id = event.target.id;
     console.log(id);
-    var index = parseInt(id.charAt(id.length-1));
-    if index === questions[0].answer {
+
+    var currentQuestion = questions[iterator];
+    console.log(currentQuestion);
+
+    var currentQuestionChoices = currentQuestion.choices;
+    console.log(currentQuestionChoices);
+
+    var clickedAnswer = currentQuestionChoices[id];
+    console.log(clickedAnswer);
+    if (currentQuestion.choices[id] === clickedAnswer) {
         score++;
         
     }
@@ -111,6 +119,7 @@ function iterateQuestions() {
     btn.addEventListener("click", iterateQuestions);
     document.getElementById("quiz-question").innerHTML = questions[iterator].question; 
     createAnswerButtons();
+    checkAnswers()
     iterator++;
 }  
 
