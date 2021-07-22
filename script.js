@@ -12,7 +12,7 @@ THEN I can save my initials and my score */
 
 
 var quizStart = document.querySelector("#start-quiz-button");
-var v = document.getElementById("showHide") 
+var v = document.getElementById("showHide")
 
 var targetDiv = document.getElementById("showHide");
 var btn = document.getElementById("btn");
@@ -63,7 +63,7 @@ var questions = [
 ]
 
 
-function checkAnswers (event) { 
+function checkAnswers(event) {
     var id = event.target.id;
     console.log(id);
 
@@ -79,64 +79,62 @@ function checkAnswers (event) {
         score++;
         console.log("Correct!");
         iterateQuestions();
-        hideQuestions();
     }
     else {
         console.log("Incorrect!");
         iterateQuestions();
-        hideQuestions();
     }
-} 
+}
 
 var iterator = 0;
 
 
 
 function createAnswerButtons() {
+    document.getElementById('#quiz-question-choices').innerHTML = "";
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[0];
-    document.body.appendChild(button);
+    document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
     button.setAttribute('id', 'button-0');
     button.addEventListener("click", checkAnswers);
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[1];
-    document.body.appendChild(button);
+    document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
     button.setAttribute('id', 'button-1');
     button.addEventListener("click", checkAnswers);
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[2];
-    document.body.appendChild(button);
+    document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
     button.setAttribute('id', 'button-2');
     button.addEventListener("click", checkAnswers);
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[3];
-    document.body.appendChild(button);
+    document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
     button.setAttribute('id', 'button-3');
     button.addEventListener("click", checkAnswers);
 }
 
-function hideQuestions(event) {
-    var currentQuestion = questions[iterator];
-    document.querySelectorAll('.quiz-question').style.visibility = "hidden";
-}
+/* function removeChoices(event) {
+    document.getElementById('#quiz-question-choices').innerHTML = "";
+} */
 
 function iterateQuestions() {
     btn.addEventListener("click", iterateQuestions);
-    document.getElementById("quiz-question").innerHTML = questions[iterator].question; 
+    document.getElementById("quiz-question").innerHTML = questions[iterator].question;
     createAnswerButtons();
     // checkAnswers()
     iterator++;
-}  
+}
 
 
 
 function startTimer() {
     var counter = 5;
-    setInterval (function () {
+    setInterval(function () {
         counter--;
     }, 1000)
     iterateQuestions();
@@ -145,7 +143,7 @@ function startTimer() {
 function alertUser() {
     alert('Go to the next question');
 }
- 
+
 btn.addEventListener("click", startTimer);
 
 
