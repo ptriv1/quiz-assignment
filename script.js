@@ -67,7 +67,7 @@ function checkAnswers (event) {
     var id = event.target.id;
     console.log(id);
     var index = parseInt(id.charAt(id.length-1));
-    if (id === questions[0].answer || id === questions[1].answer || questions[2].answer || questions[3].answer) {
+    if index === questions[0].answer {
         score++;
         
     }
