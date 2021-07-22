@@ -77,10 +77,14 @@ function checkAnswers (event) {
     console.log(clickedAnswer);
     if (currentQuestion.choices[id] === clickedAnswer) {
         score++;
-        
+        console.log("Correct!");
+        iterateQuestions();
+        hideQuestions();
     }
     else {
         console.log("Incorrect!");
+        iterateQuestions();
+        hideQuestions();
     }
 } 
 
@@ -115,11 +119,16 @@ function createAnswerButtons() {
     button.addEventListener("click", checkAnswers);
 }
 
+function hideQuestions(event) {
+    var currentQuestion = questions[iterator];
+    document.querySelectorAll('.quiz-question').style.visibility = "hidden";
+}
+
 function iterateQuestions() {
     btn.addEventListener("click", iterateQuestions);
     document.getElementById("quiz-question").innerHTML = questions[iterator].question; 
     createAnswerButtons();
-    checkAnswers()
+    // checkAnswers()
     iterator++;
 }  
 
