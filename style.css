@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+}
+
+.quiz-scores-timer {
+    justify-content: space-between;
+    display: flex;
+    background-color: forestgreen;
+    border-bottom: 1px black;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+}
+
+.container {
+    margin: 0px
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-content: center;
+    align-items: center;
+}
+
+#quiz-introduction {
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+    font-size: 20px;
+}
+
+#code-quiz-title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.start-quiz {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #ccc333;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#quiz-question {
+    font-size: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#quiz-question-choices {
+    font-size: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.choices {
+    display: block;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    margin-left: 560px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
