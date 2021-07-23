@@ -22,6 +22,8 @@ var timer;
 var timerCount = 120;
 var timerElement = document.getElementById("timer-element");
 console.log(timerElement);
+var initials;
+
 
 
 
@@ -141,14 +143,18 @@ function iterateQuestions() {
 
 function startTimer() {
     timer = setInterval(function () {
-        timer--;
+        timerCount--;
         timerElement.innerHTML = timerCount;
     }, 1000)
     iterateQuestions();
+    if (timerCount === 0) {
+        clearInterval(timer);
+    }
 }
 
-function alertUser() {
-    alert('Go to the next question');
+function doForm() {
+    var button = document.createElement('button');
+    button.innerHTML = "Submit";
 }
 
 btn.addEventListener("click", startTimer);
