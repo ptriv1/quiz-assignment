@@ -152,7 +152,23 @@ function startTimer() {
     }
 }
 
+var userInitials;
+var userScore;
+var initialsLabel;
+var scoreLabel;
+
+function clearQuestions() {
+    document.getElementById('quiz-question-choices').innerHTML = "";
+}
+
+
 function doForm() {
+    document.getElementById('quiz-question-choices').innerHTML = ""; 
+    initialsLabel = document.createElement("p");
+    userInitials = document.createElement("input").innerHTML;
+    scoreLabel = document.createElement("p");
+    userScore = document.createElement("input").innerHTML;
+
     var button = document.createElement('button');
     button.innerHTML = "Submit";
 }
