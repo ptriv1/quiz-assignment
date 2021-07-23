@@ -20,6 +20,7 @@ var btn = document.getElementById("btn");
 var score;
 var timer;
 var timerCount;
+var timerElement;
 
 
 
