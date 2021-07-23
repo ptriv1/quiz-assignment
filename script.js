@@ -91,6 +91,7 @@ function checkAnswers(event) {
     else {
         console.log("Incorrect!");
         iterateQuestions();
+        timerCount = timerCount - 5;
     }
 }
 
@@ -142,12 +143,6 @@ function startTimer() {
     timer = setInterval(function () {
         timer--;
         timerElement.innerHTML = timerCount;
-        if (timerCount > 0 && checkAnswers() === true) {
-            timerCount--;
-        }
-        if (timerCount > 0 && checkAnswers() === false){
-            timerCount = timerCount - 5;
-        }
     }, 1000)
     iterateQuestions();
 }
