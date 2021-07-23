@@ -19,8 +19,9 @@ var btn = document.getElementById("btn");
 
 var score;
 var timer;
-var timerCount;
-var timerElement;
+var timerCount = 120;
+var timerElement = document.getElementById("timer-element");
+console.log(timerElement);
 
 
 
@@ -65,18 +66,22 @@ var questions = [
     },
 ]
 
+var id;
+var currentQuestion;
+var currentQuestionChoices;
+var clickedAnswer;
 
 function checkAnswers(event) {
-    var id = event.target.id;
+    id = event.target.id;
     console.log(id);
 
-    var currentQuestion = questions[iterator];
+    currentQuestion = questions[iterator];
     console.log(currentQuestion);
 
-    var currentQuestionChoices = currentQuestion.choices;
+    currentQuestionChoices = currentQuestion.choices;
     console.log(currentQuestionChoices);
 
-    var clickedAnswer = currentQuestionChoices[id];
+    clickedAnswer = currentQuestionChoices[id];
     console.log(clickedAnswer);
     if (currentQuestion.choices[id] === clickedAnswer) {
         score++;
@@ -121,9 +126,7 @@ function createAnswerButtons() {
     button.addEventListener("click", checkAnswers);
 }
 
-/* function removeChoices(event) {
-    document.getElementById('#quiz-question-choices').innerHTML = "";
-} */
+
 
 function iterateQuestions() {
     btn.addEventListener("click", iterateQuestions);
@@ -137,16 +140,13 @@ function iterateQuestions() {
 
 function startTimer() {
     timer = setInterval(function () {
-        timerCount--;
+        timer--;
         timerElement.innerHTML = timerCount;
-        if (timerCount > 0 || checkAnswers === false) {
+        if (timerCount > 0 && checkAnswers() === true) {
+            timerCount--;
+        }
+        if (timerCount > 0 && checkAnswers() === false){
             timerCount = timerCount - 5;
-        }
-        if (timerCount === 0) {
-            clearInterval(timer);
-        }
-        if (timerCount < 0) {
-            clearInterval(timer);
         }
     }, 1000)
     iterateQuestions();
