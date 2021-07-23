@@ -164,9 +164,9 @@ function clearQuestions() {
 
 
 function doForm() {
-    document.getElementById('quiz-question-choices').innerHTML = "";
-    formInitials = document.createElement("div");
-    formInitials.className("form-initials");
+    document.querySelector('.quiz') = "";
+    formInitials = document.createElement("section");
+    formInitials.className = 'quiz';
     initialsLabel = document.createElement("p");
     userInitials = document.createElement("input");
     userInitials.setAttribute('id', 'user-initials');
