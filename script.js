@@ -18,6 +18,8 @@ var targetDiv = document.getElementById("showHide");
 var btn = document.getElementById("btn");
 
 var score;
+var timer;
+var timerCount;
 
 
 
@@ -91,7 +93,7 @@ var iterator = 0;
 
 
 function createAnswerButtons() {
-    document.getElementById('#quiz-question-choices').innerHTML = "";
+    document.getElementById('quiz-question-choices').innerHTML = "";
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[0];
     document.getElementById("quiz-question-choices").appendChild(button);
@@ -133,9 +135,15 @@ function iterateQuestions() {
 
 
 function startTimer() {
-    var counter = 5;
-    setInterval(function () {
-        counter--;
+    timer = setInterval(function () {
+        timerCount--;
+        timerElement.innerHTML = timerCount;
+        if (timerCount >= 0) {
+            clearInterval(timer);
+        }
+        if (timerCount === 0) {
+            clearInterval(timer);
+        }
     }, 1000)
     iterateQuestions();
 }
