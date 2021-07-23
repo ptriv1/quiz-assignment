@@ -138,10 +138,13 @@ function startTimer() {
     timer = setInterval(function () {
         timerCount--;
         timerElement.innerHTML = timerCount;
-        if (timerCount >= 0) {
-            clearInterval(timer);
+        if (timerCount > 0 || checkAnswers === false) {
+            timerCount = timerCount - 5;
         }
         if (timerCount === 0) {
+            clearInterval(timer);
+        }
+        if (timerCount < 0) {
             clearInterval(timer);
         }
     }, 1000)
