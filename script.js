@@ -168,7 +168,7 @@ function clearQuestions() {
 
 
 function doForm() {
-    document.querySelector('.quiz') = "";
+    document.querySelector('.quiz').text = "";
     formInitials = document.createElement("section");
     formInitials.className = 'quiz';
     initialsLabel = document.createElement("p");
