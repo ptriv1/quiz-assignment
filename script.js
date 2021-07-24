@@ -89,7 +89,7 @@ function checkAnswers(event) {
         score++;
         console.log("Correct!");
     }
-    else {
+    else if (!currentQuestion.choices[id] === clickedAnswer) {
         console.log("Incorrect!");
         timerCount = timerCount - 5;
     }
@@ -114,25 +114,25 @@ function createAnswerButtons() {
     button.innerHTML = questions[iterator].choices[0];
     document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
-    button.setAttribute('id', 'button-0');
+    button.setAttribute('id', '0');
     button.addEventListener("click", checkAnswers);
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[1];
     document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
-    button.setAttribute('id', 'button-1');
+    button.setAttribute('id', '1');
     button.addEventListener("click", checkAnswers);
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[2];
     document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
-    button.setAttribute('id', 'button-2');
+    button.setAttribute('id', '2');
     button.addEventListener("click", checkAnswers);
     var button = document.createElement('button');
     button.innerHTML = questions[iterator].choices[3];
     document.getElementById("quiz-question-choices").appendChild(button);
     button.className = 'choices';
-    button.setAttribute('id', 'button-3');
+    button.setAttribute('id', '3');
     button.addEventListener("click", checkAnswers);
 }
 
