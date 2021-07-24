@@ -88,13 +88,18 @@ function checkAnswers(event) {
     if (currentQuestion.choices[id] === clickedAnswer) {
         score++;
         console.log("Correct!");
-        iterateQuestions();
     }
     else {
         console.log("Incorrect!");
-        iterateQuestions();
         timerCount = timerCount - 5;
     }
+    iterator++;
+    if (iterator === questions.length) {
+        console.log("Finished Quiz");
+    } else {
+        iterateQuestions();
+    }
+    doForm();
 }
 
 var iterator = 0;
@@ -135,8 +140,7 @@ function iterateQuestions() {
     btn.addEventListener("click", iterateQuestions);
     document.getElementById("quiz-question").innerHTML = questions[iterator].question;
     createAnswerButtons();
-    // checkAnswers()
-    iterator++;
+    // checkAnswers();
 }
 
 
