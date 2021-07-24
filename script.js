@@ -96,11 +96,12 @@ function checkAnswers(event) {
     iterator++;
     if (iterator >= questions.length) {
         console.log("Finished Quiz");
-        document.querySelector('.quiz').text = "";
+        document.querySelector('.quiz').innerHTML = "";
+        doForm();
     } else {
         iterateQuestions();
     }
-    doForm();
+    
 }
 
 var iterator = 0;
@@ -169,19 +170,28 @@ function clearQuestions() {
 
 
 function doForm() {
-    document.querySelector('.quiz').text = "";
     formInitials = document.createElement("section");
-    formInitials.className = 'quiz';
-    initialsLabel = document.createElement("p");
+    initialsLabel = document.createElement('label');
     userInitials = document.createElement("input");
     userInitials.setAttribute('id', 'user-initials');
-    scoreLabel = document.createElement("p");
+    scoreLabel = document.createElement('label')
     userScore = document.createElement("input");
     userScore.setAttribute('id', 'user-score');
     var button = document.createElement("button");
     button.innerHTML = "Submit";
     button.className = 'initials';
+    formInitials.append(initialsLabel);
+    formInitials.append(userInitials);
+    formInitials.append(userScore);
+    formInitials.append(button)
+    document.querySelector('.quiz').append(formInitials);
+
+    // if button.addEventListener("click", )
 }
+
+/* function enterInitials() {
+
+} */
 
 btn.addEventListener("click", startTimer);
 
