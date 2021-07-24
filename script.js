@@ -164,17 +164,14 @@ var initialsLabel;
 var scoreLabel;
 var formInitials;
 
-function clearQuestions() {
-    document.getElementById('quiz-question-choices').innerHTML = "";
-}
-
-
 function doForm() {
     formInitials = document.createElement("section");
     initialsLabel = document.createElement('label');
+    initialsLabel.textContent = "Initials";
     userInitials = document.createElement("input");
     userInitials.setAttribute('id', 'user-initials');
-    scoreLabel = document.createElement('label')
+    scoreLabel = document.createElement('label');
+    scoreLabel.textContent = "Score";
     userScore = document.createElement("input");
     userScore.setAttribute('id', 'user-score');
     var button = document.createElement("button");
@@ -182,16 +179,22 @@ function doForm() {
     button.className = 'initials';
     formInitials.append(initialsLabel);
     formInitials.append(userInitials);
+    formInitials.append(scoreLabel);
     formInitials.append(userScore);
     formInitials.append(button)
     document.querySelector('.quiz').append(formInitials);
 
-    // if button.addEventListener("click", )
+    button.addEventListener("click", enterInitials);
+    
 }
 
-/* function enterInitials() {
+function enterInitials(event) {
+    event.preventDefault();
+    localStorage.setItem ("initials", formInitials.innerHTML);
+    localStorage.setItem("score", userScore.innerHTML);
+}
 
-} */
+
 
 btn.addEventListener("click", startTimer);
 
