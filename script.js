@@ -94,8 +94,9 @@ function checkAnswers(event) {
         timerCount = timerCount - 5;
     }
     iterator++;
-    if (iterator === questions.length) {
+    if (iterator >= questions.length) {
         console.log("Finished Quiz");
+        document.querySelector('.quiz').text = "";
     } else {
         iterateQuestions();
     }
