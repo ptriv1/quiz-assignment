@@ -85,11 +85,11 @@ function checkAnswers(event) {
 
     clickedAnswer = currentQuestionChoices[id];
     console.log(clickedAnswer);
-    if (currentQuestion.choices[id] === clickedAnswer) {
+    if (currentQuestion.choices[id] === currentQuestion.answer) {
         score++;
         console.log("Correct!");
     }
-    else if (!currentQuestion.choices[id] === clickedAnswer) {
+    else if (currentQuestion.choices[id] !== currentQuestion.answer) {
         console.log("Incorrect!");
         timerCount = timerCount - 5;
     }
@@ -98,6 +98,7 @@ function checkAnswers(event) {
         console.log("Finished Quiz");
         document.querySelector('.quiz').innerHTML = "";
         doForm();
+        clearInterval(timer);
     } else {
         iterateQuestions();
     }
@@ -151,6 +152,9 @@ function startTimer() {
     timer = setInterval(function () {
         timerCount--;
         timerElement.innerHTML = timerCount;
+        if (timerCount <= 0) {
+            clearInterval(timer);
+        }
     }, 1000)
     iterateQuestions();
     if (timerCount === 0) {
@@ -166,17 +170,21 @@ var formInitials;
 
 function doForm() {
     formInitials = document.createElement("section");
+    formInitials.setAttribute('id', 'form-initials');
     initialsLabel = document.createElement('label');
+    initialsLabel.setAttribute('id', 'initials-label');
     initialsLabel.textContent = "Initials";
     userInitials = document.createElement("input");
     userInitials.setAttribute('id', 'user-initials');
     scoreLabel = document.createElement('label');
+    scoreLabel.setAttribute('id', 'score-label');
     scoreLabel.textContent = "Score";
     userScore = document.createElement("input");
     userScore.setAttribute('id', 'user-score');
     var button = document.createElement("button");
     button.innerHTML = "Submit";
     button.className = 'initials';
+    button.setAttribute('id', 'submit-button-form');
     formInitials.append(initialsLabel);
     formInitials.append(userInitials);
     formInitials.append(scoreLabel);

@@ -74,3 +74,36 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+#form-initials {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin: 50px;
+}
+
+#initials-label {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin: 20px;
+}
+
+#score-label {
+    display: inline;
+    font-size: 20px;
+    margin: 20px;
+}
+
+#submit-button-form {
+    display: block;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    margin-left: 560px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
