@@ -13,3 +13,11 @@
     margin-top: 80px;
     align-content: center;
 }
+
+#initials-label {
+    display: block;
+}
+
+#score-label {
+    display: block;
+}
