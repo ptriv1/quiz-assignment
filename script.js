@@ -167,6 +167,7 @@ var userScore;
 var initialsLabel;
 var scoreLabel;
 var formInitials;
+var scoreSentence;
 
 function doForm() {
     formInitials = document.createElement("section");
