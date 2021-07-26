@@ -1,16 +1,4 @@
-/* GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score */
-
-
+// Create variables
 var quizStart = document.querySelector("#start-quiz-button");
 var v = document.getElementById("showHide")
 
@@ -21,12 +9,11 @@ var score;
 var timer;
 var timerCount = 120;
 var timerElement = document.getElementById("timer-element");
-console.log(timerElement);
 var initials;
 
 
 
-
+// Display quiz
 btn.onclick = function () {
     if (v.style.display === "none") {
         v.style.display = "block";
@@ -35,6 +22,7 @@ btn.onclick = function () {
     }
 }
 
+// Array for questions
 var questions = [
     {
         question: "What is used to add color and styling to HTML elements?",
@@ -68,34 +56,27 @@ var questions = [
     },
 ]
 
+// Create variables
 var id;
 var currentQuestion;
 var currentQuestionChoices;
 var clickedAnswer;
 
+
+// Function to check answers
 function checkAnswers(event) {
     id = event.target.id;
-    console.log(id);
-
     currentQuestion = questions[iterator];
-    console.log(currentQuestion);
-
     currentQuestionChoices = currentQuestion.choices;
-    console.log(currentQuestionChoices);
-
     clickedAnswer = currentQuestionChoices[id];
-    console.log(clickedAnswer);
     if (currentQuestion.choices[id] === currentQuestion.answer) {
         score++;
-        console.log("Correct!");
     }
     else if (currentQuestion.choices[id] !== currentQuestion.answer) {
-        console.log("Incorrect!");
         timerCount = timerCount - 5;
     }
     iterator++;
     if (iterator >= questions.length) {
-        console.log("Finished Quiz");
         document.querySelector('.quiz').innerHTML = "";
         doForm();
         clearInterval(timer);
@@ -108,7 +89,7 @@ function checkAnswers(event) {
 var iterator = 0;
 
 
-
+// Creating answer buttons
 function createAnswerButtons() {
     document.getElementById('quiz-question-choices').innerHTML = "";
     var button = document.createElement('button');
@@ -138,16 +119,15 @@ function createAnswerButtons() {
 }
 
 
-
+// Iterating through questions
 function iterateQuestions() {
     btn.addEventListener("click", iterateQuestions);
     document.getElementById("quiz-question").innerHTML = questions[iterator].question;
     createAnswerButtons();
-    // checkAnswers();
 }
 
 
-
+// Starting timer
 function startTimer() {
     timer = setInterval(function () {
         timerCount--;
@@ -170,6 +150,7 @@ var formInitials;
 var scoreSentence;
 var scoreForm;
 
+// Submitting initials form
 function doForm() {
     formInitials = document.createElement("section");
     formInitials.setAttribute('id', 'form-initials');
@@ -193,26 +174,15 @@ function doForm() {
     formInitials.append(userScore);
     formInitials.append(button)
     document.querySelector('.quiz').append(formInitials);
-
     button.addEventListener("click", enterInitials);
     
 }
 
+// Allows user to enter initials
 function enterInitials(event) {
     event.preventDefault();
     localStorage.setItem("initials", userInitials.value);
     localStorage.setItem("score", userScore.value);
-
-}
-
-
-
-function displayScore(event) {
-    scoreForm = document.createElement('form');
-    var scoreHeader = document.createElement("h3");
-    scoreHeader.textContent = "Highest Scores";
-    document.getElementById('initials-label').innerHTML = localStorage.getItem('initials');
-    document.getElementById('score-label').innerHTML = localStorage.getItem('score');
 }
 
 

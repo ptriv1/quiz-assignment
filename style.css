@@ -5,7 +5,7 @@
 .quiz-scores-timer {
     justify-content: space-between;
     display: flex;
-    background-color: forestgreen;
+    background-color: #392F5A;
     border-bottom: 1px black;
     margin: 0px;
     font-weight: bold;
@@ -16,8 +16,16 @@
     padding-bottom: 10px;
 }
 
+.page-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #D7D9CE;
+}
+
 #timer {
     padding-left: 50px;
+    margin-left: 500px;
+    color: #D7D9CE;
 }
 
 .container {
@@ -50,7 +58,7 @@
     text-align: center;
     text-decoration: none;
     font-size: 20px;
-    background-color: #ccc333;
+    background-color: #0C7489;
     font-weight: bold;
     margin-top: 100px;
     margin-left: auto;
