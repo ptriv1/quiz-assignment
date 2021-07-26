@@ -202,7 +202,7 @@ function enterInitials(event) {
     event.preventDefault();
     localStorage.setItem("initials", userInitials.value);
     localStorage.setItem("score", userScore.value);
-    
+
 }
 
 

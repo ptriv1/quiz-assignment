@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+}
+
+.container {
+    margin: 50px;
+}
+
+.score-header {
+    font-size: 50px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 80px;
+    align-content: center;
+}
