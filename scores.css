@@ -4,6 +4,7 @@
 
 .container {
     margin: 50px;
+    text-align: center;
 }
 
 .score-header {
@@ -16,8 +17,10 @@
 
 #initials-label {
     display: block;
+    text-align: center;
 }
 
 #score-label {
     display: block;
+    text-align: center;
 }
