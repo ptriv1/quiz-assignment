@@ -168,6 +168,7 @@ var initialsLabel;
 var scoreLabel;
 var formInitials;
 var scoreSentence;
+var scoreForm;
 
 function doForm() {
     formInitials = document.createElement("section");
@@ -199,8 +200,19 @@ function doForm() {
 
 function enterInitials(event) {
     event.preventDefault();
-    localStorage.setItem ("initials", formInitials.innerHTML);
-    localStorage.setItem("score", userScore.innerHTML);
+    localStorage.setItem("initials", userInitials.value);
+    localStorage.setItem("score", userScore.value);
+    
+}
+
+
+
+function displayScore(event) {
+    scoreForm = document.createElement('form');
+    var scoreHeader = document.createElement("h3");
+    scoreHeader.textContent = "Highest Scores";
+    document.getElementById('initials-label').innerHTML = localStorage.getItem('initials');
+    document.getElementById('score-label').innerHTML = localStorage.getItem('score');
 }
 
 
